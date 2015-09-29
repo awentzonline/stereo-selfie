@@ -1,0 +1,12 @@
+<p>
+  <h1>StereoSelfie</h1>
+  <div ng-if="waitingForPermission">
+    Waiting for permission to use your webcam.
+  </div>
+  <div ng-if="mediaError">
+    {{ mediaError }}
+  </div>
+  <div ng-if="!(waitingForPermission || mediaError)">
+    <button class="btn btn-primary" ui-sref="capture">Get started</button>
+  </div>
+</p>

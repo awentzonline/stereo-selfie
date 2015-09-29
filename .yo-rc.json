@@ -1,0 +1,17 @@
+{
+  "generator-angulpify": {
+    "projectName": "stereo-selfie",
+    "includeCoffeeScript": false,
+    "includeTypeScript": false,
+    "includeJavaScript": true,
+    "includeLess": true,
+    "includeSass": false,
+    "includeCss": false,
+    "includeJade": false,
+    "includeHtml": true,
+    "includeBootstrap": true,
+    "includeUIBootstrap": true,
+    "includeUIRouter": true,
+    "includeKarma": true
+  }
+}

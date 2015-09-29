@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <canvas id="output-canvas">
+    </canvas>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" ng-disabled="isWorking" ng-click="estimatePath()">
+      <span ng-if="isWorking">Calculating...</span>
+      <span ng-if="!isWorking">Recalculate</span>
+    </button>
+    <button class="btn btn-primary" ng-click="gotoCapture()">
+      Capture Again
+    </button>
+  </div>
+</div>

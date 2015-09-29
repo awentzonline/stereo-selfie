@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-push-3 col-xs-6">
+    <video id="the-video" src="" autoplay="true" dynamic-url dynamic-url-src="{{ videoSrc }}"></video>
+  </div>
+</div>
+<div class="row">
+  <div clas="col-xs-12">
+    <button class="btn btn-primary"
+        ng-disabled="WebcamSampler.isSampling"
+        ng-click="startCapture()">
+      <span ng-if="WebcamSampler.isSampling">
+        Recording {{ WebcamSampler.timeLeft|number:1 }}s
+      </span>
+      <span ng-if="!WebcamSampler.isSampling">Record</span>
+    </button>
+    <button class="btn btn-success"
+        ng-disabled="WebcamSampler.isSampling || WebcamSampler.samples.length == 0"
+        ng-click="startEditing()">
+      Edit
+    </button>
+  </div>
+</div>
