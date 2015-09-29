@@ -7,7 +7,7 @@ module.exports = /* @ngInject */
       $state.go('start');
     }
     var imageCoords;
-    var goalImageOffset = 15;  // magic units
+    $scope.eyeOffset = 7;  // magic units
 
     $scope.isWorking = false;
     $scope.estimatePath = function () {
@@ -18,7 +18,7 @@ module.exports = /* @ngInject */
           WebcamSampler.samples, {}
         );
         var bestPairs = StereoPairFinder.sortedImagePairs(
-          WebcamSampler.samples, imageCoords.distances, goalImageOffset
+          WebcamSampler.samples, imageCoords.distances, $scope.eyeOffset
         );
         var bestPair = bestPairs[0];
         // sort left to right
