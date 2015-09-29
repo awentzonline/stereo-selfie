@@ -9,7 +9,6 @@ module.exports = /* @ngInject */
   function StereoPairFinder() {
     var service = {
       findFramePositions: function (images, options) {
-        console.log('finding best pairs');
         jsfeat.fast_corners.set_threshold(options.threshold || 20);
 
         var pairs = []
@@ -37,12 +36,6 @@ module.exports = /* @ngInject */
           var motion = motionEstimator.estimate(imageA, imageB);
           var thisOffset = new jsfeat.matrix_t(1, 3, jsfeat.F32_t | jsfeat.C1_t);
           jsfeat.matmath.multiply(thisOffset, motion, ident);
-          // var p = [
-          //   position.data[0],
-          //   position.data[1],
-          //   position.data[2]
-          // ];
-          // console.log(p.join(', '));
           position.data[0] += thisOffset.data[0];
           position.data[1] += thisOffset.data[1];
           position.data[2] += thisOffset.data[2];

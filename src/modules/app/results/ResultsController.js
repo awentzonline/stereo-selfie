@@ -42,7 +42,6 @@ module.exports = /* @ngInject */
         var outputContext = elCanvas.getContext('2d');
         drawImagePair(outputContext, WebcamSampler.samples[a], WebcamSampler.samples[b])
         $scope.downloadURL = elCanvas.toDataURL();
-        console.log($scope.downloadURL)
         function drawImagePair(context, a, b) {
           context.putImageData(a, 0, 0);
           context.putImageData(b, width, 0);

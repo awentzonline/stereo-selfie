@@ -16,7 +16,6 @@ module.exports =
   ])
   .config( /* @ngInject */
     function($compileProvider) {
-      console.log('fuck')
       $compileProvider.aHrefSanitizationWhitelist(/^\s*(blob:|data:image)/);
     }
   )

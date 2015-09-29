@@ -15,7 +15,6 @@ module.exports = /* @ngInject */
           video: true
         }).then(function (stream) {
           service.stream = stream;
-          console.log(stream);
           var url = $window.URL || $window.webkitURL;
           service.streamURL = url ? url.createObjectURL(stream) : stream;
         });
