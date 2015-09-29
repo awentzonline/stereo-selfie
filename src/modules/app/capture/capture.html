@@ -5,26 +5,36 @@
 </div>
 <div class="row">
   <div clas="col-xs-12">
-    <button class="btn btn-primary"
-        ng-disabled="WebcamSampler.isSampling"
-        ng-click="startCapture()">
-      <span ng-if="WebcamSampler.isSampling">
-        Scanning {{ WebcamSampler.timeLeft|number:1 }}s
-      </span>
-      <span ng-if="!WebcamSampler.isSampling">Scan</span>
-    </button>
-    <button class="btn btn-success"
-        ng-disabled="WebcamSampler.isSampling || WebcamSampler.samples.length == 0"
-        ng-click="startEditing()">
-      Process this scan
-    </button>
+    <div class="form-group">
+      <button class="btn btn-primary"
+          ng-disabled="WebcamSampler.isSampling"
+          ng-click="startCapture()">
+        <span ng-if="WebcamSampler.isSampling">
+          Scanning {{ WebcamSampler.timeLeft|number:1 }}s
+        </span>
+        <span ng-if="!WebcamSampler.isSampling">Scan</span>
+      </button>
+      <button class="btn btn-success"
+          ng-disabled="WebcamSampler.isSampling || WebcamSampler.samples.length == 0"
+          ng-click="startEditing()">
+        Process this scan
+      </button>
+    </div>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-xs-12">
-    <p>
-      Click 'Scan' and slowly move your camera horizontally in front of your target.<br>
-      After getting a good scan, click "Process this scan" to extract an image.
-    </p>
+  <div class="col-xs-12" style="text-align: left">
+    <div class="alert alert-info">
+      <ul>
+        <li>
+          Click 'Scan' and slowly move your camera horizontally in
+          front of your target.
+        </li>
+        <li>
+          After getting a good scan, click "Process this scan" to extract an image.
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ module.exports = /* @ngInject */
       $state.go('start');
     }
     var imageCoords;
-    $scope.eyeOffset = 7;  // magic units
+    $scope.eyeOffset = 7;  // magic units; maybe pixels?
 
     $scope.isWorking = false;
     $scope.estimatePath = function () {
@@ -41,6 +41,8 @@ module.exports = /* @ngInject */
         elCanvas.height = height;
         var outputContext = elCanvas.getContext('2d');
         drawImagePair(outputContext, WebcamSampler.samples[a], WebcamSampler.samples[b])
+        $scope.downloadURL = elCanvas.toDataURL();
+        console.log($scope.downloadURL)
         function drawImagePair(context, a, b) {
           context.putImageData(a, 0, 0);
           context.putImageData(b, width, 0);
@@ -60,9 +62,14 @@ module.exports = /* @ngInject */
       });
     };
 
+    $scope.estimatePath();  // kick it off immediately
+
     $scope.gotoCapture = function () {
       $state.go('capture');
     };
 
-    $scope.estimatePath();
+    $scope.downloadURL = '';
+    $scope.downloadImage = function () {
+
+    };
   };

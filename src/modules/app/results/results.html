@@ -7,27 +7,37 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <label>Eye offset: <input ng-model="eyeOffset" size="3"/></label>
-    <button class="btn btn-primary" ng-disabled="isWorking" ng-click="estimatePath()">
-      <span ng-if="isWorking">Calculating...</span>
-      <span ng-if="!isWorking">Recalculate</span>
-    </button>
-    <button class="btn btn-primary" ng-click="gotoCapture()">
-      New Scan
-    </button>
+    <div class="form-group">
+      <label>Eye offset: <input ng-model="eyeOffset" size="3"/></label>
+      <button class="btn btn-primary" ng-disabled="isWorking" ng-click="estimatePath()">
+        <span ng-if="isWorking">Calculating...</span>
+        <span ng-if="!isWorking">Recalculate</span>
+      </button>
+      <button class="btn btn-primary" ng-click="gotoCapture()">
+        New Scan
+      </button>
+      <a ng-show="downloadURL" ng-disabled="!downloadURL" href="{{ downloadURL }}" download="stereoselfie.jpg">Download</a>
+    </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
-    <p>
-      Cross your eyes until the images align and become
-      a single 3D image.<br>You may find it easier to orient
-      yourself using the dots located in the top center of
-      each side.
-    </p>
-    <p>
-      Setting the "Eye offset" to a larger value will exaggerate the effect.
-    </p>
+  <div class="col-xs-12" style="text-align: left">
+    <div class="alert alert-info">
+      <ul>
+        <li>
+          Cross your eyes until the images align and become
+          a single 3D image.
+        </li>
+        <li>
+          You may find it easier to orient
+          yourself using the dots located in the top center of
+          each side.
+        </li>
+        <li>
+          Setting the "Eye offset" to a larger value will exaggerate the effect.
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

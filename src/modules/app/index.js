@@ -14,3 +14,9 @@ module.exports =
     require('./capture').name,
     require('./results').name
   ])
+  .config( /* @ngInject */
+    function($compileProvider) {
+      console.log('fuck')
+      $compileProvider.aHrefSanitizationWhitelist(/^\s*(blob:|data:image)/);
+    }
+  )
