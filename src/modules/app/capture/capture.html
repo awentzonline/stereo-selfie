@@ -9,14 +9,25 @@
         ng-disabled="WebcamSampler.isSampling"
         ng-click="startCapture()">
       <span ng-if="WebcamSampler.isSampling">
-        Recording {{ WebcamSampler.timeLeft|number:1 }}s
+        Scanning {{ WebcamSampler.timeLeft|number:1 }}s
       </span>
-      <span ng-if="!WebcamSampler.isSampling">Record</span>
+      <span ng-if="!WebcamSampler.isSampling">Scan</span>
     </button>
     <button class="btn btn-success"
         ng-disabled="WebcamSampler.isSampling || WebcamSampler.samples.length == 0"
         ng-click="startEditing()">
-      Edit
+      Process this scan
     </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>
+      Click 'Scan' and slowly move your camera horizontally in front of your target.<br>
+      After getting a good scan, click "Process this scan" to extract an image.
+    </p>
+    <p>
+      Setting the "Eye offset" to a larger value will exaggerate the effect.
+    </p>
   </div>
 </div>

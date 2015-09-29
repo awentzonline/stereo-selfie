@@ -35,13 +35,26 @@ module.exports = /* @ngInject */
         // HACK: I'm lazy
         var elCanvas = $document[0].getElementById('output-canvas');
         var img0 = WebcamSampler.samples[0];
-        elCanvas.width = img0.width * 2;
-        elCanvas.height = img0.height;
+        var width = img0.width,
+          height = img0.height;
+        elCanvas.width = width * 2;
+        elCanvas.height = height;
         var outputContext = elCanvas.getContext('2d');
         drawImagePair(outputContext, WebcamSampler.samples[a], WebcamSampler.samples[b])
         function drawImagePair(context, a, b) {
           context.putImageData(a, 0, 0);
-          context.putImageData(b, a.width, 0);
+          context.putImageData(b, width, 0);
+          // draw reference dots
+          var refDotRadius = 5;
+          var yPosition = 0.03; // fraction of screen, from top
+          var centerX = width / 2;
+          var centerY = yPosition * height;
+          for (var i = 0; i < 2; i++) {
+            context.beginPath();
+            context.arc(centerX + width * i, centerY, refDotRadius, 0, Math.PI * 2, true);
+            context.closePath();
+            context.fill();
+          }
         }
         $scope.isWorking = false;
       });
