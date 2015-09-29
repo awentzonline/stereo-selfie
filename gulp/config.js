@@ -16,7 +16,8 @@ global.config = {
       templatesHTML: SRC_FOLDER + '/modules/**/*.html',
       templatesCompiled: TMP_FOLDER,
       livereload: [BUILD_FOLDER + '/**/*', '!' + BUILD_FOLDER + '/assets/**/*'],
-      modules: './' + SRC_FOLDER + '/modules/index.js'
+      modules: './' + SRC_FOLDER + '/modules/index.js',
+      copyExtra: [SRC_FOLDER + '/CNAME']
     },
     dest: {
       build: {
