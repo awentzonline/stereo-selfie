@@ -9,12 +9,15 @@ module.exports = /* @ngInject */
     $scope.videoSrc = WebcamSampler.streamURL;
     $scope.WebcamSampler = WebcamSampler;
 
+    var samplingDuration = 3;
+    var numSamples = samplingDuration * 5;
+
     $scope.startCapture = function startCapture() {
       // HACK: I don't want to write a directive just for this
       var elVideo = $document[0].getElementById('the-video');
       WebcamSampler.takeSamples(elVideo, {
-        numSamples: 10,
-        duration: 1  // seconds
+        numSamples: numSamples,
+        duration: samplingDuration  // seconds
       });
     };
 
