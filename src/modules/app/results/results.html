@@ -13,7 +13,10 @@
         <span ng-if="isWorking">Calculating...</span>
         <span ng-if="!isWorking">Recalculate</span>
       </button>
-      <a ng-show="downloadURL" ng-disabled="!downloadURL" href="{{ downloadURL }}" download="stereoselfie.jpg">Download</a>
+      <a class="btn btn-success"
+          ng-show="downloadURL" ng-disabled="!downloadURL" href="{{ downloadURL }}" download="stereoselfie.jpg">
+        Download
+      </a>
     </div>
     <div class="col-xs-4" style="text-align:right">
       <button class="btn btn-danger" ng-click="gotoCapture()">
