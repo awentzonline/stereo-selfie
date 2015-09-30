@@ -10,6 +10,8 @@ module.exports = /* @ngInject */
     $scope.eyeOffset = 7;  // magic units; maybe pixels?
 
     $scope.isWorking = false;
+    $scope.crossEyed = true;
+
     $scope.estimatePath = function () {
       $scope.isWorking = true;
       // allow UI to update
@@ -25,12 +27,17 @@ module.exports = /* @ngInject */
         var iX = imageCoords.positions[bestPair.i].x;
         var jX = imageCoords.positions[bestPair.j].x;
         var a, b;
-        if (iX > jX) {
+        if (iX < jX) {
           a = bestPair.i;
           b = bestPair.j;
         } else {
           a = bestPair.j;
           b = bestPair.i;
+        }
+        if (!$scope.crossEyed) {
+          var tmp = b;
+          b = a;
+          a = tmp;
         }
         // HACK: I'm lazy
         var elCanvas = $document[0].getElementById('output-canvas');
