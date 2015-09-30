@@ -25,7 +25,7 @@ module.exports = /* @ngInject */
         var iX = imageCoords.positions[bestPair.i].x;
         var jX = imageCoords.positions[bestPair.j].x;
         var a, b;
-        if (iX < jX) {
+        if (iX > jX) {
           a = bestPair.i;
           b = bestPair.j;
         } else {
